@@ -1,6 +1,7 @@
 # Virtual-Assistant
-This is basically a virtual assistant built using python.Contributions are invited to add speech recognition.
-Wx ,wolframalpha and wikipedia modules are used here.
+This is basically a virtual assistant built using python. Contributions are invited to add speech recognition.
+   
+   Wx ,wolframalpha and wikipedia modules are used here.
 
 wx is a cross platform GUI for python.
 Wikipedia and wolframalpha modules are downloaded , installed and imported python modules.
