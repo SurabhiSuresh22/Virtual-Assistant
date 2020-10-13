@@ -15,13 +15,13 @@ For wx-
 
         Win and Mac     -     pip install -U wxPython  ,
         Ubuntu      -     sudo apt-get install python-wxgtk2.8
-<br>  
+<br> <br> 
 Wikipedia module - To get search results of almost everything.
          win     -      pip install wikipedia
-<br>  
+<br><br>  
 wolframalpha - To create an app .You have to sign in to wolframapha , create an app , you get an Id , you use it here.<br>
                pip install wolframaplha
-<br>
+<br><br>
 PyAudio -  pip install pipwin <br>
            Then run this : pipwin install pyaudio
       
