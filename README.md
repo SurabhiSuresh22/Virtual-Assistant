@@ -25,3 +25,9 @@ wolframalpha - To create an app .You have to sign in to wolframapha , create an 
 PyAudio -  pip install pipwin <br>
            Then run this : pipwin install pyaudio
       
+<br><br>
+You get a pop up window like this : (the window on top)
+This is your GUI of virtual assistant. Below is the windows that pops up displaying your search results .<br><br>
+![GUI](https://github.com/[Surbi-22]/[Virtual=Assistant]/blob/[master]/window.jpg?raw=true)
+<br><br>
+If google fails to recognize your audio , then pop up window will show "Google was unable to recongize your input" - This is your given code.
