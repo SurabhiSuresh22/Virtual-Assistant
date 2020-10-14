@@ -1,10 +1,14 @@
+# modules to collect information from network
 import wx
 import wikipedia
 import wolframalpha
 
+# module for recongnizing your command
+import speech_recognition as sr
 
 class MyFrame(wx.Frame):
-    
+
+    #initialising virtual assistant display - GUI
     def __init__(self):
         
         wx.Frame.__init__(self,None,pos=wx.DefaultPosition,size=wx.Size(450,100),
@@ -16,7 +20,7 @@ class MyFrame(wx.Frame):
         my_sizer =wx.BoxSizer(wx.VERTICAL)
         
         lbl=wx.StaticText(panel,
-        label="Hello I am PyDa the python Digital Assistant.How can I help you?")
+        label="Hello I am PyDa the python Digital Assistant.How can I help you?")   # Text display on GUI
         
         my_sizer.Add(lbl,0,wx.ALL,5)
         
@@ -29,29 +33,47 @@ class MyFrame(wx.Frame):
         
         self.Show()
 
+    # taking input and displaying information
     def OnEnter(self,event):
         inp= self.txt.GetValue()
         inp=inp.lower()
+
+        # try taking in your voice command as input 
+        if inp == '':
+            r =sr.Recognizer()
+
+            with sr.Microphone() as source:
+                audio=r.listen(source)  # listening to audio
+                
+            # using google speech recognition
+            try:
+                self.txt.SetValue(r.recognize_google(audio))                  #recognizing audio
+            except sr.UnknownValueError:
+                print('Google Speech Recognition could not understand audio') #displayed when unable to identify audio
+            except sr.RequestError as e:
+                print('Could not request results; {0} '.format(e))
+                
+        #if no audio input then check for text input
         
-        
-        try:
-        #wolframlapha
-            app_id= "---Put you id here---"
-            client=wolframalpha.Client(app_id)
+        else:
+            #finds result using wolframalpha
+            try:
+                
+               #wolframlapha
+                app_id="-----Your app id here -----"
+                client=wolframalpha.Client(app_id)
 
-            res=client.query(inp)
-            answer=next(res.results).text
-
-            print(answer)
-            
-            
-        except:
-            #wikipedia
-            inp = inp.split(' ')
-            inp=' '.join(inp[2:])
-
-            
-            print(wikipedia.summary(inp))
+                res=client.query(inp)
+                answer=next(res.results).text
+                
+                print(answer)   #display results
+                
+            #finds result using wikipedia   
+            except:
+                #wikipedia
+                inp = inp.split(' ')
+                inp=' '.join(inp[2:])
+                print(wikipedia.summary(inp))  #display results on another window
 
 
 
@@ -60,3 +82,4 @@ if __name__=='__main__':
     frame=MyFrame()
     app.MainLoop()
                
+
