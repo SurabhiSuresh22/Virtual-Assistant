@@ -28,6 +28,6 @@ PyAudio -  pip install pipwin <br>
 <br><br>
 You get a pop up window like this : (the window on top)
 This is your GUI of virtual assistant. Below is the windows that pops up displaying your search results .<br><br>
-![GUI](https://github.com/[Surbi-22]/[Virtual=Assistant]/blob/[master]/window.jpg?raw=true)
+![GUI](https://github.com/Surbi-22/Virtual-Assistant/blob/master/window.png)
 <br><br>
 If google fails to recognize your audio , then pop up window will show "Google was unable to recongize your input" - This is your given code.
